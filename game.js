@@ -63,7 +63,7 @@ const WIN_SEQUENCE_CONFIG = [
 // S O U N D   C O N F I G U R A T I O N
 // ===================================================================================
 const SOUND_CONFIG = {
-    music: 'assets/intense.mp3',      eatDot: 'assets/Meow.ogg',
+    music: 'assets/Intense.mp3',      eatDot: 'assets/Meow.ogg',
     eatGhost: 'assets/hit.ogg', powerUp: 'assets/nyam.wav',
     death: 'assets/lose.wav',      winMusic: 'assets/purrs.wav',
 };
