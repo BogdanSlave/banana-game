@@ -1,0 +1,66 @@
+body {
+    margin: 0; padding: 0; background-color: #000; color: #fff;
+    font-family: 'Press Start 2P', sans-serif; display: flex; flex-direction: column;
+    justify-content: center; align-items: center; height: 100vh; overflow: hidden;
+}
+
+#game-container {
+    position: relative; /* This is the anchor for all overlays */
+    border: 2px solid #00f;
+}
+
+/* The canvas defines the size of the container. It is NOT absolute. */
+canvas {
+    display: block; /* Ensures it takes up space correctly */
+    background-color: #000; /* The base background color */
+}
+
+/* These are the overlay layers */
+#dots-container, #win-sequence-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    pointer-events: none; /* Allows clicks to pass through */
+}
+
+#dots-container { z-index: 1; }
+/* Canvas is implicitly z-index: 0, but we draw on it, so it appears above the background dots */
+#win-sequence-container { z-index: 5; } /* Win GIFs on top of everything */
+
+
+.dot-sprite, .win-gif {
+    position: absolute;
+    image-rendering: pixelated;
+}
+
+#game-info {
+    display: flex; justify-content: space-between; padding: 10px;
+    align-items: center; font-size: 1.2em; color: #fff; text-transform: uppercase;
+}
+
+#game-over, #you-win {
+    position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
+    z-index: 4; /* On top of game, below win gifs */
+    font-size: 3em; color: #ff0; text-shadow: 3px 3px #f00; text-align: center;
+}
+.hidden { display: none; }
+
+#score-container { display: flex; align-items: center; }
+#score-dot-sprite { width: 24px; height: 24px; margin-left: 10px; image-rendering: pixelated; }
+
+/* On-screen controls */
+#touch-controls {
+    margin-top: 15px; display: block; user-select: none;
+    width: 180px; height: 180px; position: relative;
+}
+.touch-button {
+    position: absolute; background-color: #222; color: #fff; border: 2px solid #00f;
+    border-radius: 50%; font-size: 24px; width: 60px; height: 60px; cursor: pointer;
+    display: flex; justify-content: center; align-items: center;
+    transform: translate(-50%, -50%);
+}
+.touch-button:active { background-color: #444; }
+#touch-up { top: 15%; left: 50%; }
+#touch-down { top: 85%; left: 50%; }
+#touch-left { top: 50%; left: 15%; }
+#touch-right { top: 50%; left: 85%; }
